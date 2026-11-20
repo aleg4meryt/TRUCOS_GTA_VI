@@ -1,0 +1,583 @@
+/* ============================================
+   GTA VI Style - Vice City Neon
+   3 imágenes con desvanecidos más lentos
+   ============================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Roboto:wght@300;400;500;700&display=swap');
+
+:root {
+  --bg-panel: rgba(12, 8, 22, 0.92);
+  --neon-cyan: #00f0ff;
+  --neon-pink: #ff2d95;
+  --neon-magenta: #e040fb;
+  --neon-orange: #ff6b00;
+  --neon-yellow: #ffd600;
+  --text-main: #f0e8f5;
+
+  --gta-text: linear-gradient(180deg, #00f0ff 0%, #7af0ff 20%, #ff2d95 55%, #e040fb 80%, #ff9a3d 100%);
+  --gta-heading: linear-gradient(135deg, #00f0ff 0%, #ff2d95 45%, #e040fb 100%);
+  --gta-title: linear-gradient(135deg, #00f0ff 0%, #ff2d95 40%, #e040fb 100%);
+
+  --shadow-neon: 0 0 12px rgba(255, 45, 149, 0.4), 0 0 30px rgba(0, 240, 255, 0.15);
+  --row-even: rgba(22, 12, 32, 0.8);
+  --row-odd: rgba(14, 8, 24, 0.7);
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  background-color: #0a0612;
+}
+
+body {
+  font-family: 'Roboto', system-ui, -apple-system, sans-serif;
+  color: var(--text-main);
+  line-height: 1.65;
+  min-height: 100vh;
+  position: relative;
+  overflow-x: hidden;
+  background: transparent;
+}
+
+/* ========== 1. DEGRADADO ========== */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -4;
+  background: linear-gradient(
+    165deg,
+    #0a0612 0%,
+    #1a0a28 15%,
+    #0d1528 30%,
+    #2a0a2a 50%,
+    #0f1a2e 70%,
+    #0a0612 100%
+  );
+  pointer-events: none;
+  animation: fadeGradient linear both;
+  animation-timeline: scroll();
+  animation-range: 0% 28%;
+}
+
+@keyframes fadeGradient {
+  0%   { opacity: 1; }
+  55%  { opacity: 1; }
+  100% { opacity: 0; }
+}
+
+/* ========== 2. MOTO ========== */
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -3;
+  background: #0a0612 url("img/homeworkdirartifactsimgencrypted-tbn0_gstatic_com-images.jpg") center center / cover no-repeat;
+  opacity: 0;
+  pointer-events: none;
+  animation: showMoto linear both;
+  animation-timeline: scroll();
+  animation-range: 8% 52%;
+}
+
+@keyframes showMoto {
+  0%   { opacity: 0; }
+  30%  { opacity: 1; }
+  70%  { opacity: 1; }
+  100% { opacity: 0; }
+}
+
+/* ========== 3. HELICÓPTERO ========== */
+html::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -2;
+  background: #0a0612 url("img/homeworkdirartifactsimgencrypted-tbn0_gstatic_com-images2.jpg") center center / cover no-repeat;
+  opacity: 0;
+  pointer-events: none;
+  animation: showHeli linear both;
+  animation-timeline: scroll();
+  animation-range: 35% 82%;
+}
+
+@keyframes showHeli {
+  0%   { opacity: 0; }
+  30%  { opacity: 1; }
+  70%  { opacity: 1; }
+  100% { opacity: 0; }
+}
+
+/* ========== 4. CARRETERA ========== */
+html::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  background: #0a0612 url("img/homeworkdirartifactsimggta-5-free-next-gen-upgrade.jpg") center center / cover no-repeat;
+  opacity: 0;
+  pointer-events: none;
+  animation: showCarretera linear both;
+  animation-timeline: scroll();
+  animation-range: 65% 100%;
+}
+
+@keyframes showCarretera {
+  0%   { opacity: 0; }
+  35%  { opacity: 1; }
+  100% { opacity: 1; }
+}
+
+/* ========== CONTENIDO ========== */
+h1, h2, h3, p, ul, ol, table, footer {
+  max-width: 920px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1.25rem;
+  padding-right: 1.25rem;
+  position: relative;
+  z-index: 20;
+}
+
+h1 {
+  font-family: 'Oswald', Impact, sans-serif;
+  font-size: clamp(2.4rem, 8vw, 3.8rem);
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-align: center;
+  text-transform: uppercase;
+  margin-top: 2.5rem;
+  margin-bottom: 0.4rem;
+  line-height: 1.1;
+  background: var(--gta-title);
+  background-size: 200% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  filter: drop-shadow(0 0 16px rgba(255, 45, 149, 0.55));
+  transition: background-position 0.6s ease, filter 0.4s ease, letter-spacing 0.3s ease;
+  cursor: default;
+}
+
+h1:hover {
+  background: linear-gradient(
+    90deg,
+    #00f0ff 0%,
+    #7af0ff 15%,
+    #ff2d95 35%,
+    #e040fb 55%,
+    #ff6b00 70%,
+    #00f0ff 100%
+  );
+  background-size: 200% 100%;
+  background-position: 100% 0;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  filter: 
+    drop-shadow(0 0 12px rgba(0, 240, 255, 0.9))
+    drop-shadow(0 0 28px rgba(255, 45, 149, 0.5))
+    drop-shadow(0 0 40px rgba(224, 64, 251, 0.35));
+  letter-spacing: 0.12em;
+  animation: titleShine 1.8s linear infinite;
+}
+
+@keyframes titleShine {
+  0%   { background-position: 0% 0; }
+  100% { background-position: 200% 0; }
+}
+
+body > p:first-of-type {
+  text-align: center;
+  font-size: 1.05rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  margin-bottom: 1.5rem;
+  background: var(--gta-text);
+  background-attachment: fixed;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+h2 {
+  font-family: 'Oswald', sans-serif;
+  font-size: clamp(1.45rem, 4vw, 1.95rem);
+  font-weight: 700;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  margin-top: 3rem;
+  margin-bottom: 1.2rem;
+  padding-bottom: 0.55rem;
+  border-bottom: 3px solid transparent;
+  border-image: linear-gradient(90deg, var(--neon-pink), rgba(255,45,149,0.3) 40%, transparent 80%) 1;
+  background: var(--gta-heading);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  filter: drop-shadow(0 0 12px rgba(255, 45, 149, 0.25)) drop-shadow(0 2px 4px rgba(0,0,0,0.9));
+}
+
+h3 {
+  font-family: 'Oswald', sans-serif;
+  font-size: 1.2rem;
+  margin-top: 1.8rem;
+  margin-bottom: 0.8rem;
+  letter-spacing: 0.04em;
+  background: var(--gta-heading);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+p, li {
+  background: var(--gta-text);
+  background-attachment: fixed;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+p { margin-bottom: 1.1rem; }
+
+p em {
+  font-style: italic;
+  background: inherit;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+p em strong,
+ul li strong,
+ul li Strong {
+  font-weight: 700;
+  background: linear-gradient(180deg, #ffd600 0%, #ff9a3d 100%);
+  background-attachment: fixed;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+ul, ol {
+  margin-bottom: 1.4rem;
+  padding-left: 1.6rem;
+}
+
+ul li, ol li {
+  margin-bottom: 0.55rem;
+  position: relative;
+}
+
+ul:first-of-type {
+  list-style: none;
+  padding: 0;
+  margin-bottom: 1.8rem;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 0.9rem;
+  background: none;
+  border: none;
+  box-shadow: none;
+  justify-content: center;
+}
+
+ul:first-of-type li {
+  background: linear-gradient(145deg, rgba(22, 12, 32, 0.95), rgba(14, 8, 24, 0.9));
+  border-radius: 12px;
+  padding: 1.1rem 1.4rem;
+  border: 1px solid rgba(255, 45, 149, 0.25);
+  border-left: 5px solid var(--neon-pink);
+  box-shadow: 
+    0 0 0 1px rgba(255, 45, 149, 0.15),
+    0 6px 24px rgba(0, 0, 0, 0.5),
+    0 0 20px rgba(255, 45, 149, 0.08);
+  color: var(--text-main);
+  backdrop-filter: blur(14px);
+  -webkit-background-clip: border-box;
+  background-clip: border-box;
+  position: relative;
+  flex: 1 1 200px;
+  min-width: 180px;
+  max-width: 320px;
+  text-align: left;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+ul:first-of-type li:hover {
+  transform: translateY(-3px);
+  box-shadow: 
+    0 0 0 1px rgba(0, 240, 255, 0.4),
+    0 10px 32px rgba(0, 0, 0, 0.55),
+    0 0 28px rgba(0, 240, 255, 0.12);
+  border-color: rgba(0, 240, 255, 0.45);
+}
+
+ul:first-of-type li strong,
+ul:first-of-type li Strong {
+  color: var(--neon-yellow);
+  background: none;
+  -webkit-background-clip: border-box;
+  background-clip: border-box;
+  font-weight: 700;
+  margin-right: 0.35em;
+  display: block;
+  margin-bottom: 0.35rem;
+  font-size: 1rem;
+  letter-spacing: 0.04em;
+  text-shadow: 0 0 10px rgba(255, 214, 0, 0.35);
+}
+
+ul:first-of-type li strong::after,
+ul:first-of-type li Strong::after {
+  content: "";
+}
+
+@media (max-width: 700px) {
+  ul:first-of-type {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  ul:first-of-type li {
+    max-width: none;
+  }
+}
+
+ol {
+  counter-reset: step;
+  list-style: none;
+  padding-left: 0;
+}
+
+ol li {
+  counter-increment: step;
+  padding-left: 2.4rem;
+  position: relative;
+  margin-bottom: 0.7rem;
+}
+
+ol li::before {
+  content: counter(step);
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 1.6rem;
+  height: 1.6rem;
+  background: linear-gradient(135deg, var(--neon-cyan), #0088aa);
+  color: #000;
+  font-weight: 700;
+  font-size: 0.85rem;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 0 10px rgba(0, 240, 255, 0.5);
+  -webkit-background-clip: border-box;
+  background-clip: border-box;
+}
+
+table {
+  width: 100%;
+  max-width: 920px;
+  border-collapse: separate;
+  border-spacing: 0;
+  margin: 0 auto 2.2rem;
+  background: var(--bg-panel);
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow:
+    0 0 0 1px rgba(255, 45, 149, 0.35),
+    0 12px 40px rgba(0, 0, 0, 0.6),
+    var(--shadow-neon);
+  backdrop-filter: blur(14px);
+  position: relative;
+  z-index: 20;
+}
+
+table th {
+  background-image: none !important;
+  -webkit-background-clip: border-box !important;
+  background-clip: border-box !important;
+  color: var(--text-main);
+}
+
+table td {
+  background: var(--gta-text) !important;
+  background-attachment: fixed !important;
+  -webkit-background-clip: text !important;
+  background-clip: text !important;
+  color: transparent !important;
+}
+
+th {
+  font-family: 'Oswald', sans-serif;
+  font-weight: 600;
+  font-size: 0.95rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  text-align: left;
+  padding: 0.95rem 1.1rem;
+  border-bottom: 2px solid rgba(255, 45, 149, 0.4);
+  color: var(--neon-cyan);
+  text-shadow: 0 0 8px rgba(0, 240, 255, 0.5);
+  white-space: nowrap;
+  background: linear-gradient(90deg, #1a0a28, #12081f) !important;
+}
+
+tr th:first-child {
+  color: var(--neon-yellow) !important;
+  font-weight: 700;
+  width: 28%;
+  min-width: 140px;
+  background: linear-gradient(90deg, rgba(255, 214, 0, 0.14), transparent) !important;
+  border-right: 1px solid rgba(255, 214, 0, 0.18);
+  text-shadow: 0 0 10px rgba(255, 214, 0, 0.45);
+}
+
+td {
+  padding: 0.8rem 1.1rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  font-size: 0.95rem;
+  vertical-align: middle;
+  background: var(--gta-text) !important;
+  background-attachment: fixed !important;
+  -webkit-background-clip: text !important;
+  background-clip: text !important;
+  color: transparent !important;
+}
+
+tr:nth-child(even) { background: var(--row-even) !important; }
+tr:nth-child(odd)  { background: var(--row-odd) !important; }
+
+tr:last-child td,
+tr:last-child th { border-bottom: none; }
+
+tr:hover {
+  background: rgba(255, 45, 149, 0.12) !important;
+}
+
+tr:hover td {
+  background-image: var(--gta-text) !important;
+  background-attachment: fixed !important;
+  -webkit-background-clip: text !important;
+  background-clip: text !important;
+  color: transparent !important;
+  filter: brightness(1.3);
+  transition: filter 0.2s ease;
+}
+
+tr:hover th {
+  background: rgba(255, 45, 149, 0.18) !important;
+  transition: background 0.2s ease;
+}
+
+tr:hover th:first-child {
+  color: #fff !important;
+  text-shadow: 0 0 14px var(--neon-yellow);
+  background: linear-gradient(90deg, rgba(255, 214, 0, 0.25), rgba(255, 45, 149, 0.1)) !important;
+}
+
+footer {
+  text-align: center;
+  margin-top: 3rem;
+  margin-bottom: 2.5rem;
+  padding: 1.2rem;
+  font-size: 0.9rem;
+  border-top: 1px solid rgba(255, 45, 149, 0.25);
+  max-width: 920px;
+  background: var(--gta-text);
+  background-attachment: fixed;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  position: relative;
+  z-index: 20;
+}
+
+footer::before {
+  content: "★ ";
+  color: var(--neon-pink);
+  -webkit-background-clip: border-box;
+  background-clip: border-box;
+}
+
+@media (max-width: 700px) {
+  h1 { font-size: 2.2rem; margin-top: 1.8rem; }
+  table { font-size: 0.88rem; border-radius: 8px; }
+  th, td { padding: 0.7rem 0.75rem; }
+  tr th:first-child { width: 32%; min-width: 110px; }
+}
+
+@media (max-width: 480px) {
+  h1, h2, h3, p, ul, ol, table, footer {
+    padding-left: 0.9rem;
+    padding-right: 0.9rem;
+  }
+  table {
+    display: block;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+  th, td { white-space: nowrap; }
+}
+
+::selection {
+  background: rgba(255, 45, 149, 0.35);
+  color: #fff;
+}
+
+::-webkit-scrollbar { width: 10px; }
+::-webkit-scrollbar-track { background: #0a0612; }
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, var(--neon-cyan), var(--neon-pink));
+  border-radius: 5px;
+}
+
+@supports not (animation-timeline: scroll()) {
+  body::before { opacity: 0.5; }
+  body::after  { opacity: 0.6; }
+  html::before { opacity: 0.5; }
+  html::after  { opacity: 0.7; }
+}
+
+/* Notas importantes - viñetas chulas */
+h3 + ul {
+  list-style: none;
+  padding-left: 0.2rem;
+  margin-bottom: 1.8rem;
+}
+
+h3 + ul li {
+  position: relative;
+  padding-left: 2rem;
+  margin-bottom: 0.85rem;
+  background: var(--gta-text);
+  background-attachment: fixed;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  line-height: 1.5;
+}
+
+h3 + ul li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.35em;
+  width: 0.7rem;
+  height: 0.7rem;
+  background: linear-gradient(135deg, var(--neon-cyan), var(--neon-pink));
+  border-radius: 3px;
+  box-shadow: 
+    0 0 8px rgba(0, 240, 255, 0.7),
+    0 0 16px rgba(255, 45, 149, 0.35);
+  transform: rotate(45deg);
+  -webkit-background-clip: border-box;
+  background-clip: border-box;
+}
